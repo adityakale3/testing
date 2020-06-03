@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="./css/style.css" rel="stylesheet"/>
+</head>
+<body>
+    <h1><%= title %></h1>
+ 
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Employee Type</th>        
+        <th>Hourly Rate</th>        
+        <th>Total Hrs</th>              
+    </tr>
+    <% datas.forEach((data) => {%>
+        <tr>
+            <td><%= data.name %></td>
+            <td><%= data.email %></td>
+            <td><%= data.etype %></td> 
+            <td><%= data.hourlyrate %></td>
+            <td><%= data.totalHrs %></td>            
+        </tr>
+    <% }); %>
+</table>
+
+<!-- <table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Course Count</th>        
+    </tr>
+    <% datas.forEach((data) => {%>
+        <tr>
+            <td><%= data.name %></td>
+            <td><%= data.email %></td>
+            <td><%= data.courseCount %></td>            
+        </tr>
+    <% }); %>
+</table> -->
+
+</body>
+</html>

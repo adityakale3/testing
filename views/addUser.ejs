@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Users</title>
+</head>
+<body>
+    <center>
+        <h1>Add Users</h1>
+
+        <form method="POST">        
+            <input type="text" name="name" placeholder="Name"><br>
+            <input type="email" name="email" placeholder="Email"><br>
+            <select name="etype">
+                    <option>Employee Type</option>
+                    <option value="hourly">Hourly</option>
+                    <option value="fixed">Fixed</option>
+            </select>   <br>
+            <input type="number" name="hourlyrate" placeholder="Hourly rate"><br>
+            <input type="number" name="totalHrs" placeholder="Total Hrs"><br>
+            <input type="submit" name="submit" value="Add user"> 
+        </form>
+    </center>
+</body>
+</html>
