@@ -17,7 +17,26 @@ router.get('/', (req,res) => {
     });
 
     router.post('/', urlencodedParser, (req,res) => {
-        console.log(req.body.name,req.body.email,req.body.etype,req.body.hourlyrate,req.body.totalHrs,);
+        var addData = new abc ({
+            name:req.body.uname,
+            email:req.body.email,
+            etype:req.body.emptype,
+            hourlyrate:req.body.hrlyrate,
+            totalHrs:req.body.ttlhr
+        });
+        addData.save((err,res1) => {
+            console.log(addData);
+ 
+            abc.find({},function(err,data){
+                if(err){
+                    console.log(err);
+                } 
+             res.render('./users', {title : 'Users', datas:data});
+            });           
+
+
+        });
+
     });
 
 

@@ -16,6 +16,47 @@
 </head>
 <body>
     <h1><%= title %></h1>
+    <div class="col-md-12">
+        <form action="/search/" id="EmployeeForm" class="form-horizontal" method="post"  role="form">
+                    
+       <div class="col-md-3">
+          <div class="form-group">
+              <label for="name" class="col-md-12 control-label">By Name</label>
+              <div class="col-md-12">
+                  <input type="text" id="searchName" class="form-control" name="fltrname" placeholder="Enter Name">
+              </div>
+          </div>
+       </div>
+       <div class="col-md-3">
+          <div class="form-group">
+              <label for="email" class="col-md-12 control-label">By Email</label>
+              <div class="col-md-12">
+                  <input type="text" class="form-control" name="fltremail" placeholder="Enter Email">
+              </div>
+          </div>
+       </div>
+       <div class="col-md-3">
+          <div class="form-group">
+              <label for="email" class="col-md-12 control-label">By Employee Type</label>
+              <div class="col-md-12">
+                  <select class="form-control" name="fltremptype">
+                      <option value="Hourly">Hourly</option>
+                      <option value="Fixed">Fixed</option>
+                    </select></div>
+          </div>
+       </div>
+       <div class="col-md-3">
+          <div class="form-group">
+              <label for="email" class="col-md-12 control-label">&nbsp;</label>
+             
+               <div class="col-md-12">
+                  <input type="submit" class="form-control btn btn-primary" name="submit" placeholder="Filter">
+              </div>
+          </div>
+       </div>
+</form>
+     </div>
+
     <div class="container">
         <div class="row">
             <h1><%= title %></h1>
@@ -42,20 +83,6 @@
          </tbody>
 </table>
 
-<!-- <table>
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Course Count</th>        
-    </tr>
-    <% datas.forEach((data) => {%>
-        <tr>
-            <td><%= data.name %></td>
-            <td><%= data.email %></td>
-            <td><%= data.courseCount %></td>            
-        </tr>
-    <% }); %>
-</table> -->
 
 </body>
 </html>
