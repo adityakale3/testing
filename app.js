@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/',index);
 app.use('/users',users);
 app.use('/addUser',addUser);
-app.use('/addUser',filterUser);
+app.use('/filterUser',filterUser);
 
 
 app.listen(3000, () => {

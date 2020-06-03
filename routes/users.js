@@ -12,9 +12,5 @@ router.get('/', (req,res) => {
          res.render('./users', {title : 'Users', datas:data});
         }) 
     });
-
-
-
-
-
+    
 module.exports = router;
