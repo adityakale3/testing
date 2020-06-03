@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link href="./css/style.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -66,8 +65,9 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Employee Type</th>        
-                <th>Hourly Rate</th>        
-                <th>Total Hrs</th>              
+                <th>Hourly Rate</th>  
+                <th>Total Hrs</th> 
+                <th>Action</th>             
             </tr>
           </thead>
          <tbody> 
@@ -78,6 +78,9 @@
             <td><%= data.etype %></td> 
             <td><%= data.hourlyrate %></td>
             <td><%= data.totalHrs %></td>            
+            <td><a class="btn btn-primary btn-xs" href="/filterUser/edit/<%= data._id %>"><i class="fa fa-edit"></i></a> 
+                <a class="btn btn-danger btn-xs" href="/filterUser/delete/<%= data._id %>"><i class="fa fa-trash"></i></a>
+            </td>
         </tr>
     <% }); }else {%>
         <td colspan='5' style='text-align: center;'> <b> No record Found </b></td>

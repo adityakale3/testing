@@ -51,5 +51,16 @@ router.post('/search',urlencodedParser, (req,res) => {
 
 });
 
+// DELETE QUERY
+router.get('/delete/:id', (req,res) => {
+    var id = req.params.id;
+    var del = abc.findByIdAndDelete({_id:id})
+ 
+    del.exec({},function(err){
+           if(err) throw err;
+        res.redirect('/filterUser');
+       }) 
+   });
+
 
 module.exports = router;
