@@ -56,11 +56,37 @@ router.get('/delete/:id', (req,res) => {
     var id = req.params.id;
     var del = abc.findByIdAndDelete({_id:id})
  
-    del.exec({},function(err){
+    del.exec(function(err){
            if(err) throw err;
         res.redirect('/filterUser');
        }) 
    });
+
+// EDIT
+router.get('/edit/:id', (req,res) => {
+    var id = req.params.id;
+    var edit = abc.findById({_id:id})
+    edit.exec(function(err,data){
+           if(err) throw err;
+        res.render('./editUser', {title : 'Edit User', datas:data});
+       }); 
+   });
+
+// UPDATE
+router.post('/update', urlencodedParser, (req,res) => {
+   var update = abc.findByIdAndUpdate(req.body.uuid, {
+    name:req.body.uname,
+    email:req.body.email,
+    etype:req.body.emptype,
+    hourlyrate:req.body.hrlyrate,
+    totalHrs:req.body.ttlhr
+   });
+   update.exec(function(err,data){
+    if(err) throw err;
+     res.redirect('/filterUser');
+    }); 
+
+});
 
 
 module.exports = router;
