@@ -3,6 +3,9 @@ var router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const bodyParser = require('body-parser');
+const uploadModel = require('../models/uploadSchema');
+
+var imagefiledata = uploadModel.find({}); 
 
 router.use(express.static(path.join(__dirname, 'public')));
 
@@ -22,12 +25,30 @@ var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.get('/', (req,res) => {
-         res.render('./upload', {title : 'Upload Image', success : ''});
+    imagefiledata.exec((err,data) => {
+        if(err) throw err;
+        res.render('./upload', {title : 'Upload Image', success : '', datas:data});
+    });
+
    });
 
 router.post('/', upload, (req,res) => {
-    var success = req.file.filename + " Uplaoded Successfully";
-    res.render('./upload', {title : 'Upload Image', success : success});
+    var uploadFile = req.file.filename;
+
+    var imagedetails = new uploadModel({
+        filename:uploadFile
+    });
+
+    imagedetails.save( (err,doc) => {
+            if(err) throw err;
+
+        imagefiledata.exec((err,data) => {
+            var success = req.file.filename + " Uplaoded Successfully";
+            res.render('./upload', {title : 'Upload Image', success : success, datas:data});
+        });
+    });
+
+
 });
 
 

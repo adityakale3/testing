@@ -4,15 +4,22 @@
   <title><%= title %></title>
 </head>
 <body>
+    <center>
  <!--  SINGLE FILE -->
 <% if(success != '') {%>
     <p style="color:green;">File Uplaoded Successfully.</p>
 <% } %>
-<center>
+
  <form action="/upload" enctype="multipart/form-data" method="POST"> 
    <input type="file" name="file" />
    <input type="submit" value="Upload"/>
 </form>
+<br><br><br>
+
+<% if(datas.length > 0) { %>
+    <% datas.forEach((data) => { %>
+        <img src="./uploads/<%= data.filename %>" width="10%" >
+<% }); } %>
 </center>
 </body>
 </html>
