@@ -6,6 +6,7 @@ const index = require('./routes/index');
 const users = require('./routes/users');
 const addUser = require('./routes/addUser');
 const filterUser = require('./routes/filterUser');
+const upload = require('./routes/upload');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -15,7 +16,7 @@ app.use('/',index);
 app.use('/users',users);
 app.use('/addUser',addUser);
 app.use('/filterUser',filterUser);
-
+app.use('/upload',upload);
 
 app.listen(3000, () => {
     console.log('Server up and Running');

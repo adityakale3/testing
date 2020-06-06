@@ -1,0 +1,18 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+</head>
+<body>
+ <!--  SINGLE FILE -->
+<% if(success != '') {%>
+    <p style="color:green;">File Uplaoded Successfully.</p>
+<% } %>
+<center>
+ <form action="/upload" enctype="multipart/form-data" method="POST"> 
+   <input type="file" name="file" />
+   <input type="submit" value="Upload"/>
+</form>
+</center>
+</body>
+</html>
