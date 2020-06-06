@@ -4,6 +4,8 @@ const multer = require('multer');
 const path = require('path');
 const bodyParser = require('body-parser');
 const uploadModel = require('../models/uploadSchema');
+const checkLogin = require('../checkLogin');
+
 
 var imagefiledata = uploadModel.find({}); 
 
@@ -24,7 +26,7 @@ var upload = multer({
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-router.get('/', (req,res) => {
+router.get('/', checkLogin, (req,res) => {
     imagefiledata.exec((err,data) => {
         if(err) throw err;
         res.render('./upload', {title : 'Upload Image', success : '', datas:data});

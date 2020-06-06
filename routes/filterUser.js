@@ -1,5 +1,6 @@
 const express = require('express');
 var router = express.Router();
+const checkLogin = require('../checkLogin');
 const abc = require('../models/mongoDB');
 const emp = abc.find({});
 const bodyParser = require('body-parser');
@@ -7,7 +8,7 @@ const bodyParser = require('body-parser');
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-router.get('/', (req,res) => {
+router.get('/', checkLogin, (req,res) => {
 
      abc.find({},function(err,data){
             if(err){

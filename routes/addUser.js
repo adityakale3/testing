@@ -2,11 +2,12 @@ const express = require('express');
 var router = express.Router();
 const abc = require('../models/mongoDB');
 const bodyParser = require('body-parser');
+const checkLogin = require('../checkLogin');
 
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-router.get('/', (req,res) => {
+router.get('/',checkLogin, (req,res) => {
 
      abc.find({},function(err,data){
             if(err){
